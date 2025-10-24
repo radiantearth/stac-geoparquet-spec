@@ -52,7 +52,3 @@ Then when the second item is converted back to JSON, it will be returned as
 ```
 
 which is not strictly equal to the input.
-
-## Schema difficulties
-
-JSON is schemaless while Parquet requires a strict schema, and it can be very difficult to unite these two systems. This is such an important consideration that we have a [documentation page](./schema.md) just to discuss this point.

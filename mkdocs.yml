@@ -1,0 +1,40 @@
+site_name: stac-geoparquet-spec
+site_url: https://radiantearth.github.io/stac-geoparquet-spec/
+repo_url: https://github.com/radiantearth/stac-geoparquet-spec
+repo_name: stac-geoparquet-spec
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep purple
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+nav:
+  - index.md
+  - Specification: spec.md
+  - drawbacks.md
+
+plugins:
+  - search
+  - social
+  - mike:
+      alias_type: "copy"
+      canonical_version: "latest"
+
+extra:
+  version:
+    provider: mike
