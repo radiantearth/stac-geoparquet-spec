@@ -1,8 +1,13 @@
-# STAC-GeoParquet
+# stac-geoparquet
 
-Convert [STAC](https://stacspec.org/en) items between JSON, [GeoParquet](https://geoparquet.org/), [pgstac](https://github.com/stac-utils/pgstac), and [Delta Lake](https://delta.io/).
+A specification for storing [SpatioTemporal Asset Catalog (STAC)](https://stacspec.org) items in [GeoParquet](https://geoparquet.org/).
+The specification lives at <https://github.com/radiantearth/stac-geoparquet-spec/blob/main/stac-geoparquet-spec.md>.
 
-## Purpose
+> [!WARNING]
+> The **stac-geoparquet** specification is under development, and has not yet been released as a stable v1.
+> See [this milestone](https://github.com/radiantearth/stac-geoparquet-spec/milestone/1) to track progress towards a stable release.
+
+## Motivation
 
 The STAC spec defines a JSON-based schema.
 But it can be hard to manage and search through many millions of STAC items in JSON format.
@@ -14,32 +19,7 @@ While STAC Items are commonly distributed as individual JSON files on object sto
 
 For analytic questions like "find the items in the Sentinel-2 collection in June 2024 over New York City with cloud cover of less than 20%" it can be much, much faster to find the relevant data from a GeoParquet source than from JSON, because GeoParquet needs to load only the relevant columns for that query, not the full data.
 
-See the [STAC-GeoParquet specification](./spec/stac-geoparquet-spec.md) for details on the exact schema of the written Parquet files.
-
-
-## Installation
-
-Install via `pip` or `conda`:
-
-* `pip install stac-geoparquet`
-* `conda install conda-forge::stac-geoparquet`
-
-## Documentation
-
-[Documentation website](https://stac-utils.github.io/stac-geoparquet/)
-
 ## Development
-
-Get [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
-
-```shell
-git clone git@github.com:stac-utils/stac-geoparquet.git
-cd stac-geoparquet
-uv sync
-uv run pre-commit install
-uv run pytest
-scripts/lint
-```
 
 Validate the example collection metadata against the jsonschema:
 
