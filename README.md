@@ -21,8 +21,29 @@ For analytic questions like "find the items in the Sentinel-2 collection in June
 
 ## Development
 
-Validate the example collection metadata against the jsonschema:
+Get [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
+
+```sh
+uv sync
+npm install
+```
+
+To lint the markdown files:
+
+```sh
+npm run lint
+# or, to fix errors
+npm run format
+```
+
+To serve the documentation site:
+
+```sh
+uv run mkdocs serve
+```
+
+To validate the example collection metadata against the jsonschema:
 
 ```shell
-check-jsonschema --schemafile spec/json-schema/metadata.json spec/example-metadata.json
+uv run check-jsonschema --schemafile json-schema/metadata.json example-metadata.json
 ```

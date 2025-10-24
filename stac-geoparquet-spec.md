@@ -77,10 +77,9 @@ All stac-geoparquet metadata is stored under the key `stac-geoparquet` in the pa
 See [`example-metadata.json`](https://github.com/stac-utils/stac-geoparquet/blob/main/spec/example-metadata.json) for an example.
 
 A [jsonschema schema file][schema] is provided for tools to validate against.
-Note that the json-schema for stac-geoparquet does *not* validate the
+Note that the json-schema for stac-geoparquet does _not_ validate the
 `collection` object against the STAC json-schema. You'll need to validate that
 separately.
-
 
 | Field Name    | Type                    | Description                                                                                |
 | --------------| ------------------------| ------------------------------------------------------------------------------------------ |
@@ -150,6 +149,5 @@ The principles here can likely be used to map into other geospatial data formats
 [link]: https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#link-object
 [common-media-types]: https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#common-media-types-in-stac
 [timestamp]: https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#timestamp
-[parquet-metadata]: https://github.com/apache/parquet-format#metadata
 [Collection]: https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#
 [schema]: https://github.com/stac-utils/stac-geoparquet/blob/main/spec/json-schema/metadata.json

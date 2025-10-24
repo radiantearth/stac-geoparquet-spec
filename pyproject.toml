@@ -1,0 +1,10 @@
+[project]
+name = "stac-geoparquet-spec-dev"
+version = "0.0.0"
+description = "Development tooling for the stac-geoparquet spec, not intended for release"
+requires-python = ">=3.13"
+dependencies = [
+    "check-jsonschema>=0.34.1",
+    "mike>=2.1.3",
+    "mkdocs-material[imaging]>=9.6.22",
+]
