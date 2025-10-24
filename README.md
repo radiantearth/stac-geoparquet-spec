@@ -26,3 +26,12 @@ Validate the example collection metadata against the jsonschema:
 ```shell
 check-jsonschema --schemafile spec/json-schema/metadata.json spec/example-metadata.json
 ```
+
+## History
+
+The **stac-geoparquet** specification was split from the [stac-utils repository](https://github.com/stac-utils/stac-geoparquet) in October 2025.
+The **git** history was preserved via the following command:
+
+```sh
+git filter-repo --subdirectory-filter=spec --path LICENSE --path README.md --path docs/drawbacks.md
+```
