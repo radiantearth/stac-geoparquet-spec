@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://radiantearth.github.io/stac-geoparquet-spec/latest/</loc>
+         <lastmod>2025-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://radiantearth.github.io/stac-geoparquet-spec/latest/drawbacks/</loc>
+         <lastmod>2025-10-31</lastmod>
+    </url>
+</urlset>
