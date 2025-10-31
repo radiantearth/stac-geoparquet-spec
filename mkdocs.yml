@@ -25,7 +25,6 @@ theme:
 
 nav:
   - index.md
-  - Specification: spec.md
   - drawbacks.md
 
 plugins:
