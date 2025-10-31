@@ -1,5 +1,7 @@
 # stac-geoparquet
 
+<img src="./img/stac-geoparquet.png" width=200 />
+
 A specification for storing [SpatioTemporal Asset Catalog (STAC)](https://stacspec.org) items in [GeoParquet](https://geoparquet.org/).
 The specification lives at <https://github.com/radiantearth/stac-geoparquet-spec/blob/main/stac-geoparquet-spec.md>.
 
