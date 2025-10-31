@@ -1,27 +1,38 @@
 site_name: stac-geoparquet-spec
+site_description: Open, community specification for storing STAC in GeoParquet
 site_url: https://radiantearth.github.io/stac-geoparquet-spec/
 repo_url: https://github.com/radiantearth/stac-geoparquet-spec
 repo_name: stac-geoparquet-spec
 theme:
   name: material
+  logo: img/stac-geoparquet.png
+  favicon: img/stac-geoparquet.png
+  icon:
+    repo: fontawesome/brands/github
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      primary: deep purple
-      accent: indigo
+      primary: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep purple
-      accent: indigo
+      primary: custom
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
+
+extra:
+  version:
+    alias: true
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - index.md
@@ -33,7 +44,3 @@ plugins:
   - mike:
       alias_type: "copy"
       canonical_version: "latest"
-
-extra:
-  version:
-    provider: mike
