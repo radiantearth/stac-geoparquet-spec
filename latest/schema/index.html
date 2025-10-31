@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://radiantearth.github.io/stac-geoparquet-spec/latest/drawbacks/">
+        <link rel="canonical" href="https://radiantearth.github.io/stac-geoparquet-spec/latest/schema/">
       
       
-        <link rel="prev" href="../schema/">
+        <link rel="prev" href="..">
       
+      
+        <link rel="next" href="../drawbacks/">
       
       
       <link rel="icon" href="../img/stac-geoparquet.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Drawbacks - stac-geoparquet-spec</title>
+        <title>Schema considerations - stac-geoparquet-spec</title>
       
     
     
@@ -59,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Drawbacks - stac-geoparquet-spec" >
+        <meta  property="og:title"  content="Schema considerations - stac-geoparquet-spec" >
       
         <meta  property="og:description"  content="Open, community specification for storing STAC in GeoParquet" >
       
-        <meta  property="og:image"  content="https://radiantearth.github.io/stac-geoparquet-spec/latest/assets/images/social/drawbacks.png" >
+        <meta  property="og:image"  content="https://radiantearth.github.io/stac-geoparquet-spec/latest/assets/images/social/schema.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://radiantearth.github.io/stac-geoparquet-spec/latest/drawbacks/" >
+        <meta  property="og:url"  content="https://radiantearth.github.io/stac-geoparquet-spec/latest/schema/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Drawbacks - stac-geoparquet-spec" >
+        <meta  name="twitter:title"  content="Schema considerations - stac-geoparquet-spec" >
       
         <meta  name="twitter:description"  content="Open, community specification for storing STAC in GeoParquet" >
       
-        <meta  name="twitter:image"  content="https://radiantearth.github.io/stac-geoparquet-spec/latest/assets/images/social/drawbacks.png" >
+        <meta  name="twitter:image"  content="https://radiantearth.github.io/stac-geoparquet-spec/latest/assets/images/social/schema.png" >
       
     
     
@@ -102,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drawbacks" class="md-skip">
+        <a href="#schema-considerations" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drawbacks
+              Schema considerations
             
           </span>
         </div>
@@ -315,28 +317,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../schema/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Schema considerations
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -354,7 +334,7 @@
   
   
   <span class="md-ellipsis">
-    Drawbacks
+    Schema considerations
     
   </span>
   
@@ -367,7 +347,7 @@
   
   
   <span class="md-ellipsis">
-    Drawbacks
+    Schema considerations
     
   </span>
   
@@ -390,9 +370,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unable-to-represent-undefined-values" class="md-nav__link">
+  <a href="#full-scan-over-input-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Unable to represent undefined values
+      Full scan over input data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-provided-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      User-provided schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-schemas-per-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple schemas per collection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple schemas per collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging-data-with-schema-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merging data with schema mismatch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future work
     </span>
   </a>
   
@@ -402,6 +424,28 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drawbacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Drawbacks
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -433,9 +477,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unable-to-represent-undefined-values" class="md-nav__link">
+  <a href="#full-scan-over-input-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Unable to represent undefined values
+      Full scan over input data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-provided-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      User-provided schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-schemas-per-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple schemas per collection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple schemas per collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging-data-with-schema-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merging data with schema mismatch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future work
     </span>
   </a>
   
@@ -460,58 +546,30 @@
   
 
 
-<h1 id="drawbacks">Drawbacks</h1>
-<p>Trying to represent STAC data in GeoParquet has some drawbacks.</p>
-<h2 id="unable-to-represent-undefined-values">Unable to represent undefined values</h2>
-<p>Parquet is unable to represent the difference between <em>undefined</em> and <em>null</em>, and so is unable to perfectly round-trip STAC data with <em>undefined</em> values.</p>
-<p>In JSON a value can have one of three states: defined, undefined, or null. The <code>"b"</code> key in the next three examples illustrates this:</p>
-<p>Defined:</p>
-<pre><code class="language-json">{
-  &quot;a&quot;: 1,
-  &quot;b&quot;: &quot;foo&quot;
-}
+<h1 id="schema-considerations">Schema considerations</h1>
+<p>A STAC Item is a JSON object to describe an external geospatial dataset. The STAC specification defines a common core, plus a variety of extensions. Additionally, STAC Items may include custom extensions outside the common ones. Crucially, the majority of the specified fields in the core spec and extensions define optional keys. Those keys often differ across STAC collections and may even differ within a single collection across items.</p>
+<p>STAC's flexibility is a blessing and a curse. The flexibility of schemaless JSON allows for very easy writing as each object can be dumped separately to JSON. Every item is allowed to have a different schema. And newer items are free to have a different schema than older items in the same collection. But this write-time flexibility makes it harder to read as there are no guarantees (outside STAC's few required fields) about what fields exist.</p>
+<p>Parquet is the complete opposite of JSON. Parquet has a strict schema that must be known before writing can start. This puts the burden of work onto the writer instead of the reader. Reading Parquet is very efficient because the file's metadata defines the exact schema of every record. This also enables use cases like reading specific columns that would not be possible without a strict schema.</p>
+<p>This conversion from schemaless to strict-schema is the difficult part of converting STAC from JSON to GeoParquet, especially for large input datasets like STAC that are often larger than memory.</p>
+<h2 id="full-scan-over-input-data">Full scan over input data</h2>
+<p>The most foolproof way to convert STAC JSON to GeoParquet is to perform a full scan over input data. This is done automatically by [<code>parse_stac_ndjson_to_arrow</code>][stac_geoparquet.arrow.parse_stac_ndjson_to_arrow] when a schema is not provided.</p>
+<p>This is time consuming as it requires two full passes over the input data: once to infer a common schema and again to actually write to Parquet (though items are never fully held in memory, allowing this process to scale).</p>
+<h2 id="user-provided-schema">User-provided schema</h2>
+<p>Alternatively, the user can pass in an Arrow schema themselves using the <code>schema</code> parameter of [<code>parse_stac_ndjson_to_arrow</code>][stac_geoparquet.arrow.parse_stac_ndjson_to_arrow]. This <code>schema</code> must match the on-disk schema of the the STAC JSON data.</p>
+<h2 id="multiple-schemas-per-collection">Multiple schemas per collection</h2>
+<p>It is also possible to write multiple Parquet files with STAC data where each Parquet file may have a different schema. This simplifies the conversion and writing process but makes reading and using the Parquet data harder.</p>
+<h3 id="merging-data-with-schema-mismatch">Merging data with schema mismatch</h3>
+<p>If you've created STAC GeoParquet data where the schema has updated, you can use [<code>pyarrow.concat_tables</code>][pyarrow.concat_tables] with <code>promote_options="permissive"</code> to combine multiple STAC GeoParquet files.</p>
+<pre><code class="language-py">import pyarrow as pa
+import pyarrow.parquet as pq
+
+table_1 = pq.read_table(&quot;stac1.parquet&quot;)
+table_2 = pq.read_table(&quot;stac2.parquet&quot;)
+combined_table = pa.concat_tables([table1, table2], promote_options=&quot;permissive&quot;)
 </code></pre>
-<p>Undefined:</p>
-<pre><code class="language-json">{
-  &quot;a&quot;: 2
-}
-</code></pre>
-<p>Null:</p>
-<pre><code class="language-json">{
-  &quot;a&quot;: 3,
-  &quot;b&quot;: null
-}
-</code></pre>
-<p>Because Parquet is a columnar format, it is only able to represent undefined at the <em>column</em> level. So if those three JSON items above were converted to Parquet, the column <code>"b"</code> would exist because it exists in the first and third item, and the second item would have <code>"b"</code> inferred as <code>null</code>:</p>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>"foo"</td>
-</tr>
-<tr>
-<td>2</td>
-<td>null</td>
-</tr>
-<tr>
-<td>3</td>
-<td>null</td>
-</tr>
-</tbody>
-</table>
-<p>Then when the second item is converted back to JSON, it will be returned as</p>
-<pre><code class="language-json">{
-  &quot;a&quot;: 2
-  &quot;b&quot;: null
-}
-</code></pre>
-<p>which is not strictly equal to the input.</p>
+<h2 id="future-work">Future work</h2>
+<p>Schema operations is an area where future work can improve reliability and ease of use of STAC GeoParquet.</p>
+<p>It's possible that in the future we could automatically infer an Arrow schema from the STAC specification's published JSON Schema files. If you're interested in this, open an issue and discuss.</p>
 
 
 

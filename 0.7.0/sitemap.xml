@@ -8,4 +8,8 @@
          <loc>https://radiantearth.github.io/stac-geoparquet-spec/latest/drawbacks/</loc>
          <lastmod>2025-10-31</lastmod>
     </url>
+    <url>
+         <loc>https://radiantearth.github.io/stac-geoparquet-spec/latest/schema/</loc>
+         <lastmod>2025-10-31</lastmod>
+    </url>
 </urlset>

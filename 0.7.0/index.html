@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="drawbacks/">
+        <link rel="next" href="schema/">
       
       
       <link rel="icon" href="img/stac-geoparquet.png">
@@ -411,6 +411,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stac-collection-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      STAC Collection Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stac-collection-object" class="md-nav__link">
     <span class="md-ellipsis">
       STAC Collection Object
@@ -451,6 +460,28 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema considerations
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -563,6 +594,15 @@
   <a href="#geoparquet-version" class="md-nav__link">
     <span class="md-ellipsis">
       Geoparquet Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stac-collection-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      STAC Collection Objects
     </span>
   </a>
   
@@ -809,12 +849,17 @@ separately.</p>
 <tr>
 <td><code>version</code></td>
 <td>string</td>
-<td>The stac-geoparquet metadata version. Currently just "1.0.0" is allowed</td>
+<td>The stac-geoparquet metadata version. The stac-geoparquet version this dataset implements.</td>
+</tr>
+<tr>
+<td><code>collections</code></td>
+<td>Map<string, Collection></td>
+<td>A mapping from collection ID to STAC collection objects.</td>
 </tr>
 <tr>
 <td><code>collection</code></td>
 <td>STAC Collection object</td>
-<td>STAC Collection metadata.</td>
+<td><strong>deprecated</strong>. Use <code>collections</code> instead.</td>
 </tr>
 </tbody>
 </table>
@@ -824,14 +869,25 @@ separately.</p>
 <p>The field <code>version</code> stores the version of the stac-geoparquet
 specification the data complies with. Readers can use this field to understand what
 features and fields are available.</p>
-<p>Currently, the only allowed value is the string <code>"1.0.0"</code>.</p>
-<p>Note: early versions of this specificaiton didn't include a <code>version</code> field. Readers
+<p>Currently, the only allowed values are <code>"1.1.0"</code> and <code>"1.0.0"</code>.</p>
+<p>Note: early versions of this specification didn't include a <code>version</code> field. Readers
 aiming for maximum compatibility may attempt to read files without this key present,
 despite it being required from 1.0.0 onwards.</p>
-<h4 id="stac-collection-object">STAC Collection Object</h4>
+<h4 id="stac-collection-objects">STAC Collection Objects</h4>
 <p>To make a stac-geoparquet file a fully self-contained representation, you can
-include the Collection JSON document in the Parquet metadata under the
-<code>collection</code> key. This should contain a STAC <a href="https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#">Collection</a>.</p>
+include <a href="https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#">STAC Collection</a> JSON objects in the Parquet metadata
+under the <code>collections</code> key. This should be a mapping from Collection ID to
+Collection object. As usual, the ID used as the key of the mapping must match
+the ID in the Collection object.</p>
+<p>Because parquet is a columnar format and stores the union of all the fields from
+all the items, we recommend only storing STAC collections with the same or
+mostly the same fields in the same stac-geoparquet dataset. STAC collections
+with very different schemas should likely be distributed in separate
+stac-geoparquet datasets.</p>
+<h4 id="stac-collection-object">STAC Collection Object</h4>
+<p>Version 1.0.0 of this specification included a singular <code>collection</code> field that
+stored a single STAC collection object. In version 1.1.0, this field is
+deprecated in favor of <code>collections</code>.</p>
 <h2 id="referencing-a-stac-geoparquet-collections-in-a-stac-collection-json">Referencing a STAC Geoparquet Collections in a STAC Collection JSON</h2>
 <p>A common use case of stac-geoparquet is to create a mirror of a STAC collection. To refer to this mirror in the original collection, use an <a href="https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#asset-object">Asset Object</a> at the collection level of the STAC JSON that includes the <code>application/vnd.apache.parquet</code> Media type and <code>collection-mirror</code> Role type to describe the function of the Geoparquet STAC Co
 For example:</p>

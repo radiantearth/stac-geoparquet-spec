@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://radiantearth.github.io/stac-geoparquet-spec/latest/drawbacks/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../schema/">
       
       
       
@@ -315,6 +315,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema considerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -376,15 +398,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#schema-difficulties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema difficulties
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -423,15 +436,6 @@
   <a href="#unable-to-represent-undefined-values" class="md-nav__link">
     <span class="md-ellipsis">
       Unable to represent undefined values
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schema-difficulties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema difficulties
     </span>
   </a>
   
@@ -508,8 +512,6 @@
 }
 </code></pre>
 <p>which is not strictly equal to the input.</p>
-<h2 id="schema-difficulties">Schema difficulties</h2>
-<p>JSON is schemaless while Parquet requires a strict schema, and it can be very difficult to unite these two systems. This is such an important consideration that we have a <a href="./schema.md">documentation page</a> just to discuss this point.</p>
 
 
 
