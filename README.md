@@ -1,26 +1,37 @@
 # stac-geoparquet
 
-<!-- markdownlint-disable-next-line MD033 -->
 <img src="./img/stac-geoparquet.png" alt="The stac-geoparquet logo" width=200 />
 
-A specification for storing [SpatioTemporal Asset Catalog (STAC)](https://stacspec.org) items in [GeoParquet](https://geoparquet.org/).
-The specification lives at <https://github.com/radiantearth/stac-geoparquet-spec/blob/main/stac-geoparquet-spec.md>.
+A specification for storing
+[SpatioTemporal Asset Catalog (STAC)](https://stacspec.org) items in
+[GeoParquet](https://geoparquet.org/). The specification lives at
+<https://github.com/radiantearth/stac-geoparquet-spec/blob/main/stac-geoparquet-spec.md>.
 
-> [!WARNING]
-> The **stac-geoparquet** specification is under development, and has not yet been released as a stable v1.
-> See [this milestone](https://github.com/radiantearth/stac-geoparquet-spec/milestone/1) to track progress towards a stable release.
+> [!WARNING] The **stac-geoparquet** specification is under development, and has
+> not yet been released as a stable v1. See
+> [this milestone](https://github.com/radiantearth/stac-geoparquet-spec/milestone/1)
+> to track progress towards a stable release.
 
 ## Motivation
 
-The STAC spec defines a JSON-based schema.
-But it can be hard to manage and search through many millions of STAC items in JSON format.
-For one, JSON is very large on disk.
-And you need to parse the entire JSON data into memory to extract just a small piece of information, say the `datetime` and one `asset` of an Item.
+The STAC spec defines a JSON-based schema. But it can be hard to manage and
+search through many millions of STAC items in JSON format. For one, JSON is very
+large on disk. And you need to parse the entire JSON data into memory to extract
+just a small piece of information, say the `datetime` and one `asset` of an
+Item.
 
-GeoParquet can be a good complement to JSON for many bulk-access and analytic use cases.
-While STAC Items are commonly distributed as individual JSON files on object storage or through a [STAC API](https://github.com/radiantearth/stac-api-spec), STAC GeoParquet allows users to access a large number of STAC items in bulk without making repeated HTTP requests.
+GeoParquet can be a good complement to JSON for many bulk-access and analytic
+use cases. While STAC Items are commonly distributed as individual JSON files on
+object storage or through a
+[STAC API](https://github.com/radiantearth/stac-api-spec), STAC GeoParquet
+allows users to access a large number of STAC items in bulk without making
+repeated HTTP requests.
 
-For analytic questions like "find the items in the Sentinel-2 collection in June 2024 over New York City with cloud cover of less than 20%" it can be much, much faster to find the relevant data from a GeoParquet source than from JSON, because GeoParquet needs to load only the relevant columns for that query, not the full data.
+For analytic questions like "find the items in the Sentinel-2 collection in June
+2024 over New York City with cloud cover of less than 20%" it can be much, much
+faster to find the relevant data from a GeoParquet source than from JSON,
+because GeoParquet needs to load only the relevant columns for that query, not
+the full data.
 
 ## Development
 
@@ -53,8 +64,9 @@ uv run check-jsonschema --schemafile json-schema/metadata.json example-metadata.
 
 ## History
 
-The **stac-geoparquet** specification was split from the [stac-utils repository](https://github.com/stac-utils/stac-geoparquet) in October 2025.
-The **git** history was preserved via the following command:
+The **stac-geoparquet** specification was split from the
+[stac-utils repository](https://github.com/stac-utils/stac-geoparquet) in
+October 2025. The **git** history was preserved via the following command:
 
 ```sh
 git filter-repo --subdirectory-filter=spec --path LICENSE --path README.md --path docs/drawbacks.md

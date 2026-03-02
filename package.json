@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "lint": "markdownlint-cli2",
-    "format": "markdownlint-cli2 --fix"
+    "lint": "prettier --check '**/*.md'",
+    "format": "prettier --write '**/*.md'"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.18.1"
+    "prettier": "^3.5"
   }
 }

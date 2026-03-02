@@ -1,7 +1,0 @@
-{
-  "config": {
-    "line-length": false,
-  },
-  "gitignore": true,
-  "globs": ["**/*.md"],
-}
