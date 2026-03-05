@@ -3,7 +3,7 @@
 ## Overview
 
 This document specifies how to map a set of
-[STAC Items](https://github.com/radiantearth/stac-spec/tree/v1.0.0/item-spec)
+[STAC Items](https://github.com/radiantearth/stac-spec/tree/v1.1.0/item-spec)
 into [GeoParquet](https://geoparquet.org). It is directly inspired by the
 [STAC GeoParquet](https://github.com/stac-utils/stac-geoparquet) library, but
 aims to provide guidance for anyone putting STAC data into GeoParquet.
@@ -26,17 +26,17 @@ do pull the properties to the top level, so that it is easier to query and use
 them. The names of most of the fields should be the same in STAC and in
 GeoParquet.
 
-| Field              | GeoParquet Type      | Required | Details                                                                                                                                                                                                                                                 |
-| ------------------ | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | String               | Optional | This is just needed for GeoJSON, so it is optional and not recommended to include in GeoParquet                                                                                                                                                         |
-| stac_extensions    | List of Strings      | Required | This column is required, but can be empty if no STAC extensions were used                                                                                                                                                                               |
-| id                 | String               | Required | Required, should be unique within each collection                                                                                                                                                                                                       |
-| geometry           | Binary (WKB)         | Required | For GeoParquet 1.0 this must be well-known Binary                                                                                                                                                                                                       |
-| bbox               | Struct of Floats     | Required | Can be a 4 or 6 value struct, depending on dimension of the data. It must conform to the ["Bounding Box Columns"](https://github.com/opengeospatial/geoparquet/blob/main/format-specs/geoparquet.md#bounding-box-columns) definition of GeoParquet 1.1. |
-| links              | List of Link structs | Required | See [Link Struct](#link-struct) for more info                                                                                                                                                                                                           |
-| assets             | An Assets struct     | Required | See [Asset Struct](#asset-struct) for more info                                                                                                                                                                                                         |
-| collection         | String               | Optional | The ID of the collection this Item is a part of. See notes below on 'Collection' and 'Collection JSON' in the Parquet metadata                                                                                                                          |
-| _property columns_ | _varies_             | -        | Each property should use the relevant Parquet type, and be pulled out of the properties object to be a top-level Parquet field                                                                                                                          |
+| Field              | GeoParquet Type                   | Required | Details                                                                                                                                                                                                                                 |
+| ------------------ | --------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | String                            | Optional | This is just needed for GeoJSON, so it is optional and not recommended to include in GeoParquet                                                                                                                                         |
+| stac_extensions    | List of Strings                   | Required | This column is required, but can be empty if no STAC extensions were used                                                                                                                                                               |
+| id                 | String                            | Required | Required, should be unique within each collection                                                                                                                                                                                       |
+| geometry           | Binary (WKB or GeoArrow geometry) | Required | For GeoParquet 1.1 it can be WKB or single-geometry type encodings based on the GeoArrow specification, in [OGC:CRS84](https://github.com/opengeospatial/geoparquet/blob/main/format-specs/geoparquet.md#ogccrs84-details)              |
+| bbox               | Struct of Floats                  | Required | Can be a 4 or 6 value struct, depending on dimension of the data. It must conform to the ["Bounding Box Columns"](https://github.com/opengeospatial/geoparquet/blob/main/format-specs/geoparquet.md#bbox) definition of GeoParquet 1.1. |
+| links              | List of Link structs              | Required | See [Link Struct](#link-struct) for more info                                                                                                                                                                                           |
+| assets             | An Assets struct                  | Required | See [Asset Struct](#asset-struct) for more info                                                                                                                                                                                         |
+| collection         | String                            | Optional | The ID of the collection this Item is a part of. See notes below on 'Collection' and 'Collection JSON' in the Parquet metadata                                                                                                          |
+| _property columns_ | _varies_                          | -        | Each property should use the relevant Parquet type, and be pulled out of the properties object to be a top-level Parquet field                                                                                                          |
 
 - Must be valid GeoParquet, with proper metadata. Ideally the geometry types are
   defined and as narrow as possible.
@@ -54,8 +54,9 @@ GeoParquet.
 - The Collection JSON objects should be included in the Parquet metadata. See
   [Collection JSON](#stac-collection-objects) below.
 - Any other properties that would be stored as GeoJSON in a STAC JSON Item (e.g.
-  `proj:geometry`) should be stored as a binary column with WKB encoding. This
-  simplifies the handling of collections with multiple geometry types.
+  `proj:geometry`) should be stored as a binary column with WKB or GeoArrow
+  geometry encoding. This simplifies the handling of collections with multiple
+  geometry types.
 
 ### Link Struct
 
