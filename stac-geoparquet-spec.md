@@ -92,6 +92,8 @@ To take advantage of Parquet's columnar nature and compression, the assets
 should be uniform so they can be represented by a simple schema, which in turn
 means every item should probably come from the same STAC collection.
 
+[Additional fields](https://github.com/radiantearth/stac-spec/blob/master/commons/assets.md#additional-fields)
+_may_ be added to the assets, though this is recommended only in special cases.
 See [Asset Object][asset] for more.
 
 ### Parquet Metadata
