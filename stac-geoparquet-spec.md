@@ -104,7 +104,7 @@ metadata about the dataset. All stac-geoparquet metadata is stored under the key
 `stac-geoparquet` in the parquet file metadata.
 
 See
-[`example-metadata.json`](https://github.com/stac-utils/stac-geoparquet/blob/main/spec/example-metadata.json)
+[`example-metadata.json`](https://github.com/radiantearth/stac-geoparquet-spec/blob/main/example-metadata.json)
 for an example.
 
 A [jsonschema schema file][schema] is provided for tools to validate against.
@@ -200,4 +200,4 @@ scope of this document, and we recommend creating a general document for that.
 [Collection]:
   https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#
 [schema]:
-  https://github.com/stac-utils/stac-geoparquet/blob/main/spec/json-schema/metadata.json
+  https://github.com/radiantearth/stac-geoparquet-spec/blob/main/json-schema/metadata.json
