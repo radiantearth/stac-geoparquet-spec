@@ -73,8 +73,9 @@ See [Link Object][link] for more.
 
 ### Asset Struct
 
-The `assets` attribute of a **stac-geoparquet** dataset is a [struct](https://arrow.apache.org/docs/format/Columnar.html#struct-layout) of zero or more Asset Structs.
-Each Asset Struct can have the following fields:
+The `assets` attribute of a **stac-geoparquet** dataset is a
+[struct](https://arrow.apache.org/docs/format/Columnar.html#struct-layout) of
+zero or more Asset Structs. Each Asset Struct can have the following fields:
 
 | Field Name  | Type      | Description                                                                                                                                                                                  |
 | ----------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
