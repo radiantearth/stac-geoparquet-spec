@@ -12,9 +12,9 @@ We use [Arrow](https://arrow.apache.org/docs/format/index.html) types to define
 STAC GeoParquet. While Arrow types are not the same as Parquet types, most
 writer libraries will (and do) use Arrow to create STAC GeoParquet. Any
 ambiguities due to using Arrow types to define a Parquet specification should be
-called out in this document; if they are not, please open an [Github
-issue](https://github.com/radiantearth/stac-geoparquet-spec/issues) describing
-the problem.
+called out in this document; if they are not, please open an
+[Github issue](https://github.com/radiantearth/stac-geoparquet-spec/issues)
+describing the problem.
 
 ## Use cases
 
