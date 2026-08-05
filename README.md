@@ -36,7 +36,7 @@ the full data.
 
 ## Libraries and tools
 
-Several tools exit to read and write **stac-geoparquet**:
+Several tools exist to read and write **stac-geoparquet**:
 
 - [stac-geoparquet](https://github.com/stac-utils/stac-geoparquet): The original
   reference Python implementation, **stac-geoparquet** converts STAC items
