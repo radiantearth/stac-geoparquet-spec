@@ -7,8 +7,7 @@ A specification for storing
 [GeoParquet](https://geoparquet.org/). The specification lives at
 <https://radiantearth.github.io/stac-geoparquet-spec>.
 
-> [!WARNING]
-> The **stac-geoparquet** specification is under development, and has
+> [!WARNING] The **stac-geoparquet** specification is under development, and has
 > not yet been released as a stable v1. See
 > [this milestone](https://github.com/radiantearth/stac-geoparquet-spec/milestone/1)
 > to track progress towards a stable release.
@@ -22,10 +21,10 @@ small piece of information, e.g. the `datetime` and one `asset` of an Item.
 
 GeoParquet is a good complement to JSON for many bulk-access and analytic use
 cases. While STAC Items are commonly distributed as individual JSON files on
-object storage or through a [STAC
-API](https://github.com/radiantearth/stac-api-spec), **STAC GeoParquet** (also
-styled **stac-geoparquet**) allows users to access a large number of STAC items
-in bulk without making repeated HTTP requests.
+object storage or through a
+[STAC API](https://github.com/radiantearth/stac-api-spec), **STAC GeoParquet**
+(also styled **stac-geoparquet**) allows users to access a large number of STAC
+items in bulk without making repeated HTTP requests.
 
 For analytic questions like "find the items in the Sentinel-2 collection in June
 2024 over New York City with cloud cover of less than 20%" it can be much, much
@@ -37,16 +36,28 @@ the full data.
 
 Several tools exit to read and write **stac-geoparquet**:
 
-- [stac-geoparquet](https://github.com/stac-utils/stac-geoparquet): The original reference Python implementation, **stac-geoparquet** converts STAC items between JSON, STAC GeoParquet, [pgstac](https://github.com/stac-utils/pgstac), and [Delta Lake](https://delta.io/)
-- [rustac](https://github.com/stac-utils/rustac-py/): Another Python implementation that uses [Rust](https://github.com/stac-utils/rustac) under the hood and provides read+write support through [obstore](https://developmentseed.org/obstore/latest/)
-- [duckdb](https://duckdb.org/): Though not STAC-specific, DuckDB has excellent [spatial](https://duckdb.org/docs/lts/core_extensions/spatial/overview) support and is often used for analytics and queries against STAC GeoParquet
-- [QGIS](https://qgis.org/): The state-of-the-art open-source GIS, modern QGIS versions ship with GeoParquet support via [GDAL's Parquet driver](https://gdal.org/en/stable/drivers/vector/parquet.html)
+- [stac-geoparquet](https://github.com/stac-utils/stac-geoparquet): The original
+  reference Python implementation, **stac-geoparquet** converts STAC items
+  between JSON, STAC GeoParquet, [pgstac](https://github.com/stac-utils/pgstac),
+  and [Delta Lake](https://delta.io/)
+- [rustac](https://github.com/stac-utils/rustac-py/): Another Python
+  implementation that uses [Rust](https://github.com/stac-utils/rustac) under
+  the hood and provides read+write support through
+  [obstore](https://developmentseed.org/obstore/latest/)
+- [duckdb](https://duckdb.org/): Though not STAC-specific, DuckDB has excellent
+  [spatial](https://duckdb.org/docs/lts/core_extensions/spatial/overview)
+  support and is often used for analytics and queries against STAC GeoParquet
+- [QGIS](https://qgis.org/): The state-of-the-art open-source GIS, modern QGIS
+  versions ship with GeoParquet support via
+  [GDAL's Parquet driver](https://gdal.org/en/stable/drivers/vector/parquet.html)
 
-Any GeoParquet tool should work with **stac-geoparquet**; see <https://geoparquet.org/> for a more complete listing.
+Any GeoParquet tool should work with **stac-geoparquet**; see
+<https://geoparquet.org/> for a more complete listing.
 
 ## Contributing
 
-To contribute to this specification, get [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
+To contribute to this specification, get
+[uv](https://docs.astral.sh/uv/getting-started/installation/), then:
 
 ```sh
 uv sync
