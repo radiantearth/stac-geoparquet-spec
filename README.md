@@ -45,7 +45,8 @@ Several tools exist to read and write **stac-geoparquet**:
 - [rustac](https://github.com/stac-utils/rustac-py/): Another Python
   implementation that uses [Rust](https://github.com/stac-utils/rustac) under
   the hood and provides read+write support through
-  [obstore](https://developmentseed.org/obstore/latest/)
+  [obstore](https://developmentseed.org/obstore/latest/), and supports API-style
+  queries against STAC GeoParquet files
 - [duckdb](https://duckdb.org/): Though not STAC-specific, DuckDB has excellent
   [spatial](https://duckdb.org/docs/lts/core_extensions/spatial/overview)
   support and is often used for analytics and queries against STAC GeoParquet
