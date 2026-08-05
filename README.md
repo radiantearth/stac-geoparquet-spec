@@ -7,13 +7,6 @@ A specification for storing
 [GeoParquet](https://geoparquet.org/). The specification lives at
 <https://radiantearth.github.io/stac-geoparquet-spec>.
 
-<!-- prettier-ignore -->
-> [!WARNING]
-> The **stac-geoparquet** specification is under development, and has
-> not yet been released as a stable v1. See
-> [this milestone](https://github.com/radiantearth/stac-geoparquet-spec/milestone/1)
-> to track progress towards a stable release.
-
 ## Motivation
 
 The STAC spec is defined in terms of JSON, but it can be hard to manage and
