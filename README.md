@@ -7,7 +7,9 @@ A specification for storing
 [GeoParquet](https://geoparquet.org/). The specification lives at
 <https://radiantearth.github.io/stac-geoparquet-spec>.
 
-> [!WARNING] The **stac-geoparquet** specification is under development, and has
+<!-- prettier-ignore -->
+> [!WARNING]
+> The **stac-geoparquet** specification is under development, and has
 > not yet been released as a stable v1. See
 > [this milestone](https://github.com/radiantearth/stac-geoparquet-spec/milestone/1)
 > to track progress towards a stable release.
