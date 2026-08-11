@@ -3,7 +3,8 @@ name: Pages
 on:
   push:
     tags:
-      - "v*"
+      - "*"
+  workflow_dispatch:
 
 jobs:
   pages:
