@@ -22,4 +22,4 @@ jobs:
           # Get most recent git tag
           # https://stackoverflow.com/a/7261049
           VERSION=$(git describe --tags --abbrev=0)
-          mike deploy $VERSION latest --update-aliases --push
+          uv run mike deploy $VERSION latest --update-aliases --push
