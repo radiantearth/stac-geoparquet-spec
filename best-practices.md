@@ -14,11 +14,11 @@ document provides the following guidance around ordering:
 > within the file, in order for the row group statistics to be used effectively.
 
 STAC is spatial _and_ temporal, so it follows that **stac-geoparquet** should be
-spatially _and_ temporally ordered to help users make the most efficient queries possible. There are many methods for spatio-temporal
-ordering; one implementation uses
-[stac-hash](https://github.com/gadomski/stac-hash/) to compute a 63-bit hash
-value from a STAC item's bounding box centroid and its datetime[^1]. Items
-should then be sorted by this hash value.
+spatially _and_ temporally ordered to help users make the most efficient queries
+possible. There are many methods for spatio-temporal ordering; one
+implementation uses [stac-hash](https://github.com/gadomski/stac-hash/) to
+compute a 63-bit hash value from a STAC item's bounding box centroid and its
+datetime[^1]. Items should then be sorted by this hash value.
 
 ## Prefix item ids with the spatio-temporal ordering key
 
@@ -35,24 +35,21 @@ For example, a Sentinel-2 item with a **stac-hash** id prefix might look like
 
 ## Partitioning
 
-It can be useful to write stac-geoparquet as a 
-[hive-partitioned dataset](https://duckdb.org/docs/lts/data/partitioning/hive_partitioning) 
-where one or multiple fields are used to separate the records into 
-separate files. This can help query engines be more efficient by 
-quickly scanning _file-level metadata_ that describes the range of 
-values of each column in each file before loading any actual data. 
+It can be useful to write stac-geoparquet as a
+[hive-partitioned dataset](https://duckdb.org/docs/lts/data/partitioning/hive_partitioning)
+where one or multiple fields are used to separate the records into separate
+files. This can help query engines be more efficient by quickly scanning
+_file-level metadata_ that describes the range of values of each column in each
+file before loading any actual data.
 
-A common pattern when writing stac-geoparquet is to apply a 
-monthly or yearly hive-partitioning scheme based on the `datetime` 
-property then apply a spatial- or spatio-temporal sorting scheme to 
-the records within each file to add structure to the row-groups.
+A common pattern when writing stac-geoparquet is to apply a monthly or yearly
+hive-partitioning scheme based on the `datetime` property then apply a spatial-
+or spatio-temporal sorting scheme to the records within each file to add
+structure to the row-groups.
 
-Hive-partitioning can also simplify the process of maintaining a 
-continuously updated dataset because appending new records only 
-requires you to update the files/partitions that intersect the domain
-of the new records. e.g. load the last month's records into a new 
-monthly partition once they are available instead of re-writing the 
-entire dataset.
-[^1]:
-    In the absence of a datetime, the midpoint of the start and end datetime are
-    used
+Hive-partitioning can also simplify the process of maintaining a continuously
+updated dataset because appending new records only requires you to update the
+files/partitions that intersect the domain of the new records. e.g. load the
+last month's records into a new monthly partition once they are available
+instead of re-writing the entire dataset. [^1]: In the absence of a datetime,
+the midpoint of the start and end datetime are used
