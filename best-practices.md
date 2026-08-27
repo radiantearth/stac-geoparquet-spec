@@ -33,5 +33,6 @@ statistics to skip row groups that cannot contain the id.
 For example, a Sentinel-2 item with a **stac-hash** id prefix might look like
 `0002082da2804d36-S2B_MSIL2A_20250101T153809_R082_T01CDJ_20250101T201827`.
 
-[^1]: In the absence of a datetime, the midpoint of the start and end datetime
-are used
+[^1]:
+    In the absence of a datetime, the midpoint of the start and end datetime are
+    used
