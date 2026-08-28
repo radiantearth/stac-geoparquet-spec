@@ -1,4 +1,4 @@
-# stac-geoparquet best practices
+# Best practices
 
 These best practices are built on the
 [best practices for distributing geoparquet](https://github.com/opengeospatial/geoparquet/blob/main/format-specs/distributing-geoparquet.md)
@@ -51,5 +51,8 @@ Hive-partitioning can also simplify the process of maintaining a continuously
 updated dataset because appending new records only requires you to update the
 files/partitions that intersect the domain of the new records. e.g. load the
 last month's records into a new monthly partition once they are available
-instead of re-writing the entire dataset. [^1]: In the absence of a datetime,
-the midpoint of the start and end datetime are used
+instead of re-writing the entire dataset.
+
+[^1]:
+    In the absence of a datetime, the midpoint of the start and end datetime are
+    used
