@@ -159,7 +159,7 @@ wheels = [
 
 [[package]]
 name = "check-jsonschema"
-version = "0.38.0"
+version = "0.38.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -168,21 +168,18 @@ dependencies = [
     { name = "requests" },
     { name = "ruamel-yaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a1/a0/d5ab25da3d4612a47b1e68cbbdffdc076ca3a9771027573d4ed9f4304d49/check_jsonschema-0.38.0.tar.gz", hash = "sha256:bb6899cc24ab0ced664e4646423d35b72db245cea75109c0b9e64d13087d1b8c", size = 436740, upload-time = "2026-08-09T04:31:07.055Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7f/43/f0cb0cc7e68421c5b0be6bca74d37e2daad915ee74edef42c4af21aaef19/check_jsonschema-0.38.2.tar.gz", hash = "sha256:967176475f9eddd2809baabf7e0d157f7eb482b06ac002a29a79788c0c8a5a90", size = 444493, upload-time = "2026-09-23T16:23:22.385Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8d/8b/810a6d7048cfc3db2804b36ed6ff8e8cd0855a88b9a205752f27a4521f85/check_jsonschema-0.38.0-py3-none-any.whl", hash = "sha256:a4fa877ae92b1df812c601b68fec75fe10d1f7d827a7e7f6b218f6712deead2d", size = 420163, upload-time = "2026-08-09T04:31:05.412Z" },
+    { url = "https://files.pythonhosted.org/packages/64/15/286e11f294c86616202f413df069dc6625c0085fc70d32b3e5e703236a17/check_jsonschema-0.38.2-py3-none-any.whl", hash = "sha256:8edefe154b7117962f2e88318f315fc4bb9615827f932b37cb676a8d42a3a286", size = 427987, upload-time = "2026-09-23T16:23:20.607Z" },
 ]
 
 [[package]]
 name = "click"
-version = "8.3.0"
+version = "8.5.0"
 source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz", hash = "sha256:e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4", size = 276943, upload-time = "2025-09-18T17:32:23.696Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz", hash = "sha256:ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34", size = 382235, upload-time = "2026-08-26T13:33:14.56Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/db/d3/9dcc0f5797f070ec8edf30fbadfb200e71d9db6b84d211e3b2085a7589a0/click-8.3.0-py3-none-any.whl", hash = "sha256:9b9f285302c6e3064f4330c05f05b81945b2a39544279343e6e7c5f27a9baddc", size = 107295, upload-time = "2025-09-18T17:32:22.42Z" },
+    { url = "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl", hash = "sha256:255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360", size = 125251, upload-time = "2026-08-26T13:33:12.928Z" },
 ]
 
 [[package]]
