@@ -7,7 +7,10 @@ A specification for storing
 [GeoParquet](https://geoparquet.org/). The specification lives at
 <https://radiantearth.github.io/stac-geoparquet-spec>.
 
-To validate **stac-geoparquet** files against the [specification](./stac-geoparquet-spec.md) and [best practices](./docs/best-practices.md), you can use <https://validate.stac-geoparquet.org/>.
+To validate **stac-geoparquet** files against the
+[specification](./stac-geoparquet-spec.md) and
+[best practices](./docs/best-practices.md), you can use
+<https://validate.stac-geoparquet.org/>.
 
 ## Motivation
 
