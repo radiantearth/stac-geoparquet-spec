@@ -2,11 +2,27 @@
 
 ## Overview
 
-This document specifies how to map a set of
-[STAC Items](https://github.com/radiantearth/stac-spec/tree/v1.1.0/item-spec)
-into [GeoParquet](https://geoparquet.org). It is directly inspired by the
-[STAC GeoParquet](https://github.com/stac-utils/stac-geoparquet) library, but
-aims to provide guidance for anyone putting STAC data into GeoParquet.
+This document specifies how to map a set of [STAC
+Items](https://github.com/radiantearth/stac-spec/tree/v1.1.0/item-spec), [STAC
+Collections](https://github.com/radiantearth/stac-spec/blob/v1.1.0/collection-spec/collection-spec.md),
+and [STAC
+Catalogs](https://github.com/radiantearth/stac-spec/blob/v1.1.0/catalog-spec/catalog-spec.md)
+into [GeoParquet](https://geoparquet.org). It was developed as part of the
+[stac-geoparquet](https://github.com/stac-utils/stac-geoparquet) Python library, but
+now is a general-purpose document provide guidance for anyone putting STAC data
+into GeoParquet.
+
+### Use cases
+
+- Provide a STAC GeoParquet of items that mirrors a static Collection as a way
+  to query the whole dataset instead of reading many GeoJSON files.
+- Provide a STAC GeoParquet of collections and catalogs as a way to discover
+  datasets without searching a STAC API or crawling a linked hierarchy of JSON
+  files.
+- Provide efficient access to specific fields of a STAC item, thanks to
+  Parquet's columnar format.
+
+### Types
 
 We use [Arrow](https://arrow.apache.org/docs/format/index.html) types to define
 STAC GeoParquet. While Arrow types are not the same as Parquet types, most
@@ -16,23 +32,14 @@ called out in this document; if they are not, please open a
 [Github issue](https://github.com/radiantearth/stac-geoparquet-spec/issues)
 describing the problem.
 
-## Use cases
+## Items
 
-- Provide a STAC GeoParquet that mirrors a static Collection as a way to query
-  the whole dataset instead of reading every specific GeoJSON file.
-- As an output format for STAC API responses that is more efficient than paging
-  through thousands of pages of GeoJSON.
-- Provide efficient access to specific fields of a STAC item, thanks to
-  Parquet's columnar format.
-
-## Guidelines
-
-Each row in the Parquet Dataset represents a single STAC item. Most all the
-fields in a STAC Item should be mapped to a column in GeoParquet. We embrace
-Parquet structures where possible, mapping from JSON into nested structures. We
-do pull the properties to the top level, so that it is easier to query and use
-them. The names of most of the fields should be the same in STAC and in
-GeoParquet.
+Each row in the Parquet dataset represents a single STAC Item. All the fields in
+a STAC Item should be mapped to a column in GeoParquet, as long as they do not
+conflict with top-level item fields. We embrace Parquet structures where
+possible, mapping from JSON into nested structures. We do pull the properties to
+the top level, so that it is easier to query and use them. The names of most of
+the fields should be the same in STAC and in GeoParquet.
 
 | Field              | GeoParquet Type                   | Required | Details                                                                                                                                                                                                                                 |
 | ------------------ | --------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,14 +64,30 @@ GeoParquet.
   top-level field in the GeoParquet.
 - STAC GeoParquet does not support properties that are named such that they
   collide with a top-level key.
-- datetime columns should be stored as a [native timestamp][timestamp], not as a
+- Datetime columns should be stored as a [native timestamp][timestamp], not as a
   string
-- The Collection JSON objects should be included in the Parquet metadata. See
+- The Collection JSON objects can be included in the Parquet metadata. See
   [Collection JSON](#stac-collection-objects) below.
 - Any other properties that would be stored as GeoJSON in a STAC JSON Item (e.g.
   `proj:geometry`) should be stored as a binary column with WKB or GeoArrow
   geometry encoding. This simplifies the handling of collections with multiple
   geometry types.
+
+## Collections and Catalogs
+
+Each row in the Parquet dataset represents a single STAC Collection or Catalog.
+Because Collections and Catalogs are often very heterogeneous, only a subset of
+fields are promoted to top-level columns in the GeoParquet; the remaining
+information is stored in a catchall `content` column.
+
+| Field              | GeoParquet Type                   | Catalog | Collection                                                                                                                                                                                                                                 |
+| -- | -- | -- | -- |
+| `type` | string | "Catalog" | "Collection" |
+| `stac_version` | string | required | required |
+
+## Common structures
+
+These structures are used in item, collection, and catalog STAC GeoParquet files.
 
 ### Link Struct
 
